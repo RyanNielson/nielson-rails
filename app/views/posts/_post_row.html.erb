@@ -1,0 +1,5 @@
+<div class="row">
+  <% @posts[1..-1].each_slice(3) do |posts| %>
+    <%= render posts %>
+  <% end %>
+</div>

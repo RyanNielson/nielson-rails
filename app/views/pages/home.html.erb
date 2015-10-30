@@ -1,0 +1,7 @@
+<%= render "header", post: @posts.first %>
+
+<div class="container">
+  <div class="row">
+    <%= render @posts[1..-1] %>
+  </div>
+</div>
