@@ -24,6 +24,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def update
+    post_params.inspect
     if @post.update(post_params)
       redirect_to admin_posts_url, notice: 'Post was successfully updated.'
     else

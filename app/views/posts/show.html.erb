@@ -1,31 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @post.slug %>
-</p>
-
-<p>
-  <strong>Body markdown:</strong>
-  <%= @post.body_markdown %>
-</p>
-
-<p>
-  <strong>Body html:</strong>
-  <%= @post.body_html %>
-</p>
-
-<p>
-  <strong>Published at:</strong>
-  <%= @post.published_at %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="page-header">
+        <h1><%= @post.title %> <small><%= @post.published_at.strftime('%B %e, %Y') %></small></h1>
+      </div>
+      <%= raw @post.body_html %>
+    </div>
+  </div>
+</div

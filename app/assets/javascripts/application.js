@@ -11,7 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require jquery_ujs
+//= require trix
+//= require highlight/highlight.pack
 //= require turbolinks
 //= require_tree .
