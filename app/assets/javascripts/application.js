@@ -15,5 +15,7 @@
 //= require jquery_ujs
 //= require trix
 //= require highlight/highlight.pack
+//= require jquery-ui
+//= require jquery.fileupload
 //= require turbolinks
 //= require_tree .

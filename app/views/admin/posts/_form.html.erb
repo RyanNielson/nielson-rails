@@ -32,6 +32,7 @@
     <%#= f.text_area :body_html %>
     <%= f.hidden_field :body_html %>
     <trix-editor input="post_body_html"></trix-editor>
+    <%#= content_tag :div, '', data: { 'form-data' => @s3_direct_post.fields, 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } %>
   </div>
   <div class="form-group">
     <%= f.label :published_at %><br>
@@ -40,4 +41,9 @@
   <div class="form-group">
     <%= f.submit 'Save Post', class: 'btn btn-success' %>
   </div>
+<% end %>
+
+<%= form_tag '#', id: 'image_uploader', class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } do %>
+  <%= file_field :post, :image %>
+  <%= submit_tag %>
 <% end %>
