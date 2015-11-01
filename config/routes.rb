@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :posts, only: [:index, :new, :create, :edit, :update, :destroy]
+
+    post 'posts/preview' => 'posts#preview'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

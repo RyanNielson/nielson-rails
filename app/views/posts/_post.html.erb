@@ -2,7 +2,7 @@
   <h2><%= post.title %></h2>
   <p><%= post.summary %></p>
   <p>
-    <%= link_to post, class: "btn btn-default" do %>
+    <%= link_to post_path(post.slug), class: "btn btn-default" do %>
       Read more &raquo;
     <% end %>
   </p>

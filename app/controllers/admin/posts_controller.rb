@@ -39,6 +39,13 @@ class Admin::PostsController < ApplicationController
     redirect_to admin_posts_url, notice: 'Post was successfully destroyed.'
   end
 
+  def preview
+    @html = Kramdown::Document.new(params[:markdown], input: 'GFM').to_html
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     def set_post
       @post = Post.find(params[:id])

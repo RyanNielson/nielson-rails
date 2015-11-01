@@ -5,3 +5,34 @@
 trix-editor {
   min-height: 250px;
 }
+
+#post_body_markdown {
+  font-family: monospace;
+}
+
+.panel.edit-post {
+  .panel-heading {
+    padding-bottom: 0px;
+
+    .nav-tabs {
+      border-bottom: 0px;
+
+      &>li {
+        border-bottom: 0px;
+      }
+    }
+  }
+  .panel-body {
+    padding: 0px;
+
+    textarea {
+      border: 0px;
+      border-radius: 0px;
+      box-shadow: none;
+    }
+
+    div.preview {
+      padding: 6px 12px;
+    }
+  }
+}
