@@ -1,6 +1,4 @@
 class Post < ActiveRecord::Base
-  belongs_to :user
-
   validates :title, presence: true
   validates :slug, presence: true
   validates :summary, presence: true
@@ -12,8 +10,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable
 
   private
-
-  def convert_body_to_html
-    self.body_html = Kramdown::Document.new(body_markdown, input: 'GFM').to_html
-  end
+    def convert_body_to_html
+      self.body_html = Kramdown::Document.new(body_markdown, input: 'GFM').to_html
+    end
 end

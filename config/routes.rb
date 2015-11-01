@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   get 'tags/:tag', to: 'posts#index', as: :tag
+  get ':year/:month/:slug', to: redirect('/posts/%{slug}')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

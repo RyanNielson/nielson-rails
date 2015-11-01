@@ -2,16 +2,13 @@
   <h2>
     <%= link_to post.title, post_path(post.slug) %>
   </h2>
-  <!-- <h2><%= post.title %></h2> -->
-  <p><%= post.summary %></p>
-  <ul class="nav nav-pills">
+  <p>
     <% post.tag_list.each do |tag| %>
-      <li class="active tag-pill">
-        <%= link_to tag, tag_path(tag) %>
-        <!-- <a href="#"><%= tag %></a> -->
-      </li>
+      <%= link_to tag, tag_path(tag), class: 'label label-primary' %>
     <% end %>
-  </ul>
+  </p>
+  <p><%= post.summary %></p>
+
   <!-- <p>
     <%= link_to post_path(post.slug), class: "btn btn-default" do %>
       Read more &raquo;
