@@ -13,7 +13,6 @@
 //= require jquery
 //= require bootstrap
 //= require jquery_ujs
-//= require trix
 //= require highlight/highlight.pack
 //= require jquery-ui
 //= require jquery.fileupload

@@ -6,7 +6,7 @@ $ ->
   hljs.initHighlightingOnLoad();
 
   $('#post_preview').on 'click', (event) ->
-
+    console.log "jhkh"
     $.ajax(
       data:
         markdown: $('#post_body_markdown').val()

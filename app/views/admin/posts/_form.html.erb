@@ -27,53 +27,26 @@
     <%= f.text_area :summary, rows: 2, class: 'form-control' %>
   </div>
 
-  <!-- <div class="form-group"> -->
-    <div class="form-group panel panel-default edit-post">
-      <div class="panel-heading">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active">
-            <a href="#markdown" role="tab" data-toggle="tab">Markdown</a>
-          </li>
-          <li role="presentation">
-            <%= link_to "Preview", "#preview", id: 'post_preview', data: { toggle: 'tab', url: admin_posts_preview_path } %>
-          </li>
-        </ul>
-      </div>
-      <div class="panel-body">
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="markdown">
-            <%= f.text_area :body_markdown, class: 'form-control', rows: 25 %>
-          </div>
-          <div role="tabpanel" class="tab-pane active preview" id="preview"></div>
+  <div class="form-group panel panel-default edit-post">
+    <div class="panel-heading">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#markdown" role="tab" data-toggle="tab">Markdown</a>
+        </li>
+        <li role="presentation">
+          <%= link_to "Preview", "#preview", id: 'post_preview', data: { toggle: 'tab', url: admin_posts_preview_path } %>
+        </li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="markdown">
+          <%= f.text_area :body_markdown, class: 'form-control', rows: 25 %>
         </div>
+        <div role="tabpanel" class="tab-pane active preview" id="preview"></div>
       </div>
     </div>
-
-    <!-- <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active">
-        <a href="#markdown" role="tab" data-toggle="tab">Markdown</a>
-      </li>
-      <li role="presentation">
-        <%= link_to "Preview", "#preview", id: 'post_preview', data: { toggle: 'tab', url: admin_posts_preview_path } %>
-      </li>
-    </ul> -->
-    <!-- <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="markdown">
-        <%= f.text_area :body_markdown, class: 'form-control', rows: 25 %>
-      </div>
-      <div role="tabpanel" class="tab-pane active" id="preview"></div>
-    </div> -->
-    <!-- <%= f.label :body_markdown %><br> -->
-    <%#= f.text_area :body_markdown, class: 'form-control', rows: 25 %>
-  <!-- </div> -->
-  <!-- <div class="form-group">
-    <%#= f.label :body_html %>
-    <%#= f.text_area :body_html %>
-    <%#= f.hidden_field :body_html %>
-    <%#= f.text_area :body_html %>
-    <trix-editor input="post_body_html"></trix-editor>
-    <%#= content_tag :div, '', data: { 'form-data' => @s3_direct_post.fields, 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } %>
-  </div> -->
+  </div>
 
   <div class="row">
     <div class="col-md-6 form-group">

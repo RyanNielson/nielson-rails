@@ -22,5 +22,8 @@ module Nielson
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.disqus_shortname = 'nielsonio'
+    config.google_analytics = 'UA-39338095-2'
   end
 end
