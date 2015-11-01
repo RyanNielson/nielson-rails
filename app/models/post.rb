@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
 
   before_save :convert_body_to_html
 
+  acts_as_taggable
+
   private
 
   def convert_body_to_html

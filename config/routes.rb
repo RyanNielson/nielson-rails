@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
     post 'posts/preview' => 'posts#preview'
   end
+
+  get 'tags/:tag', to: 'posts#index', as: :tag
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

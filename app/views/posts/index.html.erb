@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="page-header">
-        <h1>Posts</h1>
+        <h1>Posts
+          <% if @tag %>
+            <small>tagged as <%= @tag %></small>
+          <% end %>
+        </h1>
       </div>
       <% @posts.each_slice(2) do |posts| %>
         <div class="row">

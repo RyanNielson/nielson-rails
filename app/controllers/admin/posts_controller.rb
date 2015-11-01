@@ -4,7 +4,7 @@ class Admin::PostsController < ApplicationController
   before_action :set_s3_direct_post, only: [:new, :create, :edit, :update]
 
   def index
-    @posts = Post.all
+    @posts = Post.order(published_at: :desc).all
   end
 
   def new
@@ -56,6 +56,6 @@ class Admin::PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :slug, :summary, :body_markdown, :body_html, :published_at, :user_id)
+      params.require(:post).permit(:title, :slug, :summary, :body_markdown, :body_html, :published_at, :user_id, :tag_list)
     end
 end
