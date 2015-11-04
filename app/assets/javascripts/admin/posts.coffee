@@ -5,19 +5,15 @@
 $ ->
   hljs.initHighlightingOnLoad();
 
-  Dropzone.options.imageUploader =
+  dropzone = $("#image_uploader").dropzone
     init: ->
-      console.log "INIT"
+      console.log "INIT2"
       @.on "complete", (file) ->
         console.log("COMPLETE")
         console.log(file)
       @.on "uploadprogress", (file, progress, bytesSent) ->
         console.log("PROGRESS")
         console.log(progress)
-
-      # this.on("addedfile", function(file) { alert("Added file."); });
-
-  dropzone = $("#image_uploader").dropzone()
   # dropzone.on "init", ->
   #   console.log "INIT"
   # dropzone.on "complete", (file) ->
