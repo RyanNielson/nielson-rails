@@ -14,6 +14,7 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require highlight/highlight.pack
+//= require dropzone
 //= require jquery-ui
 //= require jquery.fileupload
 //= require turbolinks

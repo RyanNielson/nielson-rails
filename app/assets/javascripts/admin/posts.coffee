@@ -5,15 +5,52 @@
 $ ->
   hljs.initHighlightingOnLoad();
 
-  $('#post_preview').on 'click', (event) ->
-    console.log "jhkh"
-    $.ajax(
-      data:
-        markdown: $('#post_body_markdown').val()
-      url: $(@).data('url')
-      method: 'POST'
-      dataType: 'script'
-    )
+  Dropzone.options.imageUploader =
+    init: ->
+      console.log "INIT"
+      @.on "complete", (file) ->
+        console.log("COMPLETE")
+        console.log(file)
+      @.on "uploadprogress", (file, progress, bytesSent) ->
+        console.log("PROGRESS")
+        console.log(progress)
+
+      # this.on("addedfile", function(file) { alert("Added file."); });
+
+  dropzone = $("#image_uploader").dropzone()
+  # dropzone.on "init", ->
+  #   console.log "INIT"
+  # dropzone.on "complete", (file) ->
+  #   console.log("COMPLETE")
+  #   console.log(file)
+  #
+  # dropzone.on "uploadprogress", (file, progress, bytesSent) ->
+  #   console.log("PROGRESS")
+  #   console.log(progress)
+
+  # $("#s3-uploader").S3Uploader()
+
+  $('#post_body_markdown').on 'keyup', (event) ->
+    $.post $(@).data('url'), markdown: $(@).val(), (d) ->
+      $('#preview').html(d)
+    # console.log "jhkh"
+    # $.ajax(
+    #   data:
+    #     markdown: $('#post_body_markdown').val()
+    #   url: $(@).data('url')
+    #   method: 'POST'
+    #   # dataType: 'script'
+    # )
+
+  # $('#post_preview').on 'click', (event) ->
+  #   console.log "jhkh"
+  #   $.ajax(
+  #     data:
+  #       markdown: $('#post_body_markdown').val()
+  #     url: $(@).data('url')
+  #     method: 'POST'
+  #     dataType: 'script'
+  #   )
 #   $('#search_geocode').live('click', function(event){
 #     event.preventDefault();
 #     $.post($(this).attr('data-href') + "?address=" + $($(this).attr('data-address-id')).val(), function(data){} );
