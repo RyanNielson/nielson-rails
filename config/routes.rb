@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
-  devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout'}
+  get 'login', to: 'sessions#new', as: :new_session
+  post 'login', to: 'sessions#create', as: :sessions
+  delete 'logout', to: 'sessions#destroy', as: :session
 
   resources :posts, only: [:index, :show]
 
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :new, :create, :edit, :update, :destroy]
 
     post 'posts/preview' => 'posts#preview'
+
+    root to: redirect('/admin/posts')
   end
 
   get 'tags/:tag', to: 'posts#index', as: :tag
