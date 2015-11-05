@@ -1,5 +1,5 @@
 class Admin::PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :require_login
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_s3_direct_post, only: [:new, :create, :edit, :update]
 
@@ -40,13 +40,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def preview
-    # @html = Kramdown::Document.new(params[:markdown], input: 'GFM').to_html
     @html = Kramdown::Document.new(params[:markdown], input: 'GFM').to_html
-    # @html = html.gsub(/\!image\((?<text>[\w ]+)\)/i, '![\k<text>](https://example.com/img.png "\k<text>")')
-
-    # respond_to do |format|
-    #   format.js
-    # end
 
     render layout: false
   end
