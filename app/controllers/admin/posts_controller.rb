@@ -40,13 +40,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def preview
-    # @html = Kramdown::Document.new(params[:markdown], input: 'GFM').to_html
     @html = Kramdown::Document.new(params[:markdown], input: 'GFM').to_html
-    # @html = html.gsub(/\!image\((?<text>[\w ]+)\)/i, '![\k<text>](https://example.com/img.png "\k<text>")')
-
-    # respond_to do |format|
-    #   format.js
-    # end
 
     render layout: false
   end
