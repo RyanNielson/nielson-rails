@@ -25,7 +25,6 @@ class Admin::PostsController < ApplicationController
   end
 
   def update
-    post_params.inspect
     if @post.update(post_params)
       redirect_to admin_posts_url, notice: 'Post was successfully updated.'
     else
@@ -40,9 +39,13 @@ class Admin::PostsController < ApplicationController
   end
 
   def preview
-    @html = Kramdown::Document.new(params[:markdown], input: 'GFM').to_html
+    @html = Kramdown::Document.new(params[:markdown], input: 'GFM', syntax_highlighter: 'rouge').to_html
+  end
 
-    render layout: false
+  def s3_policy
+    presigned_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}${filename}", success_action_status: '201', acl: 'public-read')
+
+    render json: { url: presigned_post.url, fields: presigned_post.fields }
   end
 
   private
@@ -51,10 +54,10 @@ class Admin::PostsController < ApplicationController
     end
 
     def set_s3_direct_post
-      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}${filename}", success_action_status: '201', acl: 'public-read')
     end
 
     def post_params
-      params.require(:post).permit(:title, :slug, :summary, :body_markdown, :body_html, :published_at, :user_id, :tag_list)
+      params.require(:post).permit(:title, :slug, :summary, :body_markdown, :published_at, :tag_list)
     end
 end

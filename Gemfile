@@ -36,6 +36,7 @@ gem 'puma', '~> 2.14.0'
 gem 'rack-timeout', '~> 0.3.2'
 gem 'aws-sdk', '~> 2.1.33'
 gem 'kramdown', '~> 1.9.0'
+gem 'rouge', '~> 1.10.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

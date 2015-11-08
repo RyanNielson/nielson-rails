@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     post 'posts/preview' => 'posts#preview'
 
     root to: redirect('/admin/posts')
+
+    get 'posts/s3_policy' => 'posts#s3_policy'
   end
 
   get 'tags/:tag', to: 'posts#index', as: :tag

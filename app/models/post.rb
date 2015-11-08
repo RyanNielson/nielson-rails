@@ -26,6 +26,6 @@ class Post < ActiveRecord::Base
 
   private
     def convert_body_to_html
-      self.body_html = Kramdown::Document.new(body_markdown, input: 'GFM').to_html
+      self.body_html = Kramdown::Document.new(body_markdown, input: 'GFM', syntax_highlighter: 'rouge').to_html
     end
 end
