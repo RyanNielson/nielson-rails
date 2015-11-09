@@ -3,8 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  #hljs.initHighlightingOnLoad()
-
   dropzone = $("#post_body_markdown").dropzone
     url: $('#post_body_markdown').data('imageUploader').url
     clickable: false
@@ -21,7 +19,6 @@ $ ->
         image_tag = "![#{key}](#{url})"
 
         selectionStart = $('#post_body_markdown').prop("selectionStart")
-        console.log selectionStart
 
         output = text_area_content.substr(0, selectionStart) + "\n#{image_tag}" + text_area_content.substr(selectionStart);
 
@@ -38,3 +35,10 @@ $ ->
       method: 'POST'
       dataType: 'script'
     )
+
+  $("#post_body_markdown").on 'keydown', (event) ->
+    keyCode = event.which
+
+    if keyCode == 9 && document.queryCommandSupported('insertText')
+      document.execCommand('insertText', false, "  ")
+      event.preventDefault()

@@ -3,6 +3,8 @@ class Admin::PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_s3_direct_post, only: [:new, :create, :edit, :update]
 
+  layout "admin"
+
   def index
     @posts = Post.order(published_at: :desc).all
   end
