@@ -1,13 +1,15 @@
-<%= render "header", post: @posts.first %>
+<%= if @posts.any? %>
+  <%= render "header", post: @posts.first %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <% @posts[1..-1].each_slice(2) do |posts| %>
-        <div class="row">
-          <%= render posts %>
-        </div>
-      <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <% @posts[1..-1].each_slice(2) do |posts| %>
+          <div class="row">
+            <%= render posts %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

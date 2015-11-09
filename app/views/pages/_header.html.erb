@@ -1,13 +1,11 @@
-<% if post %>
-  <div class="jumbotron">
-    <div class="container">
-      <h1><%= post.title %></h1>
-      <p><%= post.summary %></p>
-      <p>
-        <%= link_to post_path(post.slug), class: "btn btn-primary btn-lg" do %>
-          Read more &raquo;
-        <% end %>
-      </p>
-    </div>
+<div class="jumbotron">
+  <div class="container">
+    <h1><%= post.title %></h1>
+    <p><%= post.summary %></p>
+    <p>
+      <%= link_to post_path(post.slug), class: "btn btn-primary btn-lg" do %>
+        Read more &raquo;
+      <% end %>
+    </p>
   </div>
-<% end %>
+</div>
